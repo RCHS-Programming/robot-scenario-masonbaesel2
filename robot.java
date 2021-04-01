@@ -38,6 +38,9 @@ public class robot extends Actor
     }
     public void detectWallCollision()
     {
-        if 
+        if (isTouching(wall.class))
+        {
+            setLocation(50, 50);
+        }
     }
 }
