@@ -16,6 +16,9 @@ public class robot extends Actor
     {
         robotMovement();
         detectWallCollision();
+        detectblockCollision();
+        detecthouseCollision();
+        eatPizza();
     }    
     public void robotMovement()
     {
@@ -41,6 +44,31 @@ public class robot extends Actor
         if (isTouching(wall.class))
         {
             setLocation(50, 50);
+            Greenfoot.playSound("hurt.wav");
+        }
+    }
+    public void detectblockCollision()
+    {
+        if (isTouching(block.class))
+        {
+            setLocation(50, 50);
+            Greenfoot.playSound("hurt.wav");
+        }
+    }
+    public void detecthouseCollision()
+    {
+        if (isTouching(house.class))
+        {
+            setLocation(50, 50);
+            Greenfoot.playSound("yipee.wav");
+        }
+    }
+    public void eatPizza()
+    {
+        if (isTouching(pizza.class))
+        {
+            Greenfoot.playSound("eat.wav");
+            removeTouching(pizza.class);
         }
     }
 }
